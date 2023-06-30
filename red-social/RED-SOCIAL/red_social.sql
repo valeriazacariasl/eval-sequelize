@@ -18,7 +18,7 @@ CREATE TABLE post (
     date TIME,
     FOREIGN KEY (id_user) REFERENCES users (id)
 );
-
+ 
 
 
 
