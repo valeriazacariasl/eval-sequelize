@@ -1,8 +1,32 @@
+@import url(login.css);
+@import url(register.css);
+@import url(post.css);
+@import url(home.css);
+
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ font-family: 'Agdasima', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3d7cb7;
+  padding: 20px;
+}
+
+.navbar-link {
+  color: #333;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.navbar-link:hover {
+  color: #fff;
 }

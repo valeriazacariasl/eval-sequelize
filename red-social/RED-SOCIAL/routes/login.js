@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-let loginController = require('../controllers/loginController.js')
+const { mostrarInicio, processLogin, cerrarSesion } = require('../controllers/loginController.js')
 
 /* GET home page. */
-router.get('/', loginController.mostrarInicio);
-// router.post('/', loginController.processLogin);
+router.get('/', mostrarInicio);
 
-// router.post('/logout', loginController.logout);
+router.post('/', processLogin)
+
+router.get('/logout', cerrarSesion)
+
 
 module.exports = router;

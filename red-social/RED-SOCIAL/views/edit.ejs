@@ -1,0 +1,19 @@
+
+   
+<%- include('./partials/head')%>
+<body>
+    <div class="container-login">
+        <h1>Página de edicion</h1>
+
+           
+
+            <form action="/home/post/edit/<%=id%>?_method=PUT" method="POST" >
+                <label for="post"></label>
+                <textarea id="post" name="post" class="post-textarea"><%=post.post%></textarea>
+        
+                <button type="submit" class="post-button">Editar</button>
+            </form>
+            
+     
+    </div>
+</body>

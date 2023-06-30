@@ -1,0 +1,35 @@
+<%- include('./partials/head')%>
+<body>
+    <%- include('./partials/navbar')%>
+    <div class="container-post">
+        <% if (posts.length > 0) { %>
+            <% posts.forEach(function(post) { %>
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-info">
+                            <p class="date"><%= post.date %></p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p><%= post.post %></p>
+                        <% if (post.photo) { %>
+                            <img src="/images/posteos/<%= post.photo %>" class="post">
+                        <% } %>
+                    </div>
+                    <div class="post-actions">
+                        <a href="/home/post/edit/<%=post.id%>" class="edit-link">Editar</a>
+
+                        <form action="/home/post/delete/<%= post.id %>?_method=DELETE" method="POST">
+                            <button class="delete" type="submit" class="delete-button">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <div class="empty-state">
+                <p class="no-posts">No hay publicaciones</p>
+                <a href="/home" class="create-link">Crea uno</a>
+            </div>
+        <% } %>
+    </div>
+</body>

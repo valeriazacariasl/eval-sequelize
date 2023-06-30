@@ -1,0 +1,77 @@
+body {
+  background-color: #023047
+}
+
+.container-login {
+  max-width: 600px;
+  margin: 150px auto;
+  padding: 20px;
+  background-color: #fffdfd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  color: #5aa2e0;
+  margin-bottom: 20px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-label {
+  background-color: #008cff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: -28px;
+}
+
+.file-label:hover {
+  background-color: #007be6;
+}
+
+.post-button {
+  background-color: #008cff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.post-button:hover {
+  background-color: #007be6;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

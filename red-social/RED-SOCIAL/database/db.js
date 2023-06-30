@@ -1,9 +1,11 @@
-const {Sequelize} = require ('sequelize')
+const mysql2 = require ('mysql2')
 
-const db = new Sequelize ('red_social', 'root', '', {
+const db = mysql2.createConnection ({
     host: 'localhost',
-    dialect: 'mysql',
-    port: 3306
+    user: 'root',
+    port: 3306,
+    password: '',
+    database: 'red_social'
 })
 
 module.exports = db

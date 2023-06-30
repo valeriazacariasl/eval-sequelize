@@ -1,0 +1,24 @@
+
+<%- include('./partials/head')%>
+<body>
+    <%- include('./partials/navbar')%>
+
+<div class="container-login">
+    
+    <% if (loggedIn) { %>
+        <h1>Qué tal tu dia, <%= name %> ?</h1>
+
+        <form action="/home" method="POST" enctype="multipart/form-data">
+            <label for="post"></label>
+            <textarea id="post" name="post" class="post-textarea" placeholder="Escribe tu publicación"></textarea>
+
+            <div class="button-container">
+                <input type="file" name="image" id="file-input" class="file-input">
+                <label for="file-input" class="file-label">Subir imagen</label>
+
+                <button type="submit" class="post-button">Publicar</button>
+            </div>
+        </form>
+    <% } %>
+</div>
+</body>

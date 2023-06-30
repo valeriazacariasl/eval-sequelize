@@ -1,19 +1,37 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>Register</h1>
+<%- include('./partials/head')%>
+
+<body class="body-register">
+
+  <section class="register-form">
+    <h1>Crea tu cuenta</h1>
 
     <form action="/register" method="post">
-        <label for="username">Name</label>
-        <input name="username" />
-        <label for="email">Email</label>
-        <input name="email" type="email" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <button type="submit">Register</button>
+
+      <input name="email" type="email" placeholder="Email" />
+      <input name="name" type="text" placeholder="Name" />
+      <input name="lastname" type="text" placeholder="Lastname" />
+     
+      <input name="password" type="password" placeholder="Password" />
+      <button type="submit">Registrar</button>
+
     </form>
     <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a></p>
-  </body>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <% if(typeof alert != 'undefined') { %>
+    <script>
+      Swal.fire({
+        title: '<%= alertTitle %>',
+        text: '<%= alertMessage %>',
+        icon: '<%= alertIcon %>',
+        showConfirmButton: '<%= showConfirmButton %>',
+        timer: '<%= timer %>',
+      }).then(() => {
+        window.location = '<%= ruta %>';
+      });
+    </script>
+  <% } %>
+
+</body>
