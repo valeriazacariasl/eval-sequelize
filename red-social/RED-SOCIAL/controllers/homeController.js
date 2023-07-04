@@ -1,6 +1,7 @@
 const db = require('../database/db.js');
 const bcrypt = require('bcrypt');
-let session = require('express-session')
+let session = require('express-session');
+const { post } = require('../app.js');
 
 let homeController = {
     mostrarhome: function (req, res) {
@@ -8,22 +9,46 @@ let homeController = {
             res.render('home', {
                 loggedIn: true,
                 name: req.session.name
+                
             })
         } else {
             res.redirect('/')
         }
     },
+
+    // sendForm: function (req, res) {
+    //     const postContent = req.body.post;
+    //     let postPhoto = null;
+    //     if (req.file) {
+    //       postPhoto = req.file.filename;
+    //     }
+    //     const userEmail = req.session.email;
+      
+    //     db.query(
+    //       'CALL InsertPost(?, ?, ?)',
+    //       [userEmail, postContent, postPhoto],
+    //       (error, results) => {
+    //         if (error) {
+    //           console.log(error);
+    //         } else {
+    //           res.redirect('/home/post');
+    //         }
+    //       }
+    //     );
+    //   },
+      
     sendForm: function (req, res) {
         const post = req.body.post;
-        let photoName = null; // Establece el valor inicial de photoName como null
+        let photoName = null; // el valor inicial de photoName es null
+        const userId = req.session.userId;
 
         if (req.file) {
             photoName = req.file.filename;
         }
     
         db.query(
-            'INSERT INTO post (post, photo, date) VALUES (?, ?, NOW())',
-            [post, photoName], //le paso el valor de hashing para que lo guarde de forma encripatada
+            'INSERT INTO post (id_user, post, photo, date) VALUES (?, ?, ?, NOW())',
+            [userId, post, photoName], 
             (error, results) => {
                 if (error) {
                     console.log(error); //si hay un error me d muestre error en consola
@@ -33,23 +58,31 @@ let homeController = {
                 }
             })
         
-
     },
     postFromUser: function (req, res) {
+        if (req.session.loggedIn) {
+          console.log(req.session.loggedIn)
 
-        db.query(
-            'SELECT * FROM post',
+          const userEmail = req.session.email; //obtengo el mail del usuario
+      
+          db.query(
+            'SELECT post.id, post.id_user, post.post, post.photo, post.date, users.name FROM post INNER JOIN users ON post.id_user = users.id WHERE users.email = ?',
+            [userEmail],
             (error, results) => {
-                console.log(results);
-                if (error) {
-                    console.log(error); //si hay un error me d muestre error en consola
-                } else {
-                    res.render('post', { posts: results })
-                }
+              if (error) {
+                console.log(error);
+              
+              } else {
+                res.render('post', { posts: results });
+                
+              }
             }
-        )
-
-    },
+          );
+        } else {
+          console.log('Usuario no logueado');
+          res.redirect('/');
+        }
+      },
     deletePostUser: function (req, res) {
         const id = req.params.id;
         db.query(
@@ -84,10 +117,14 @@ let homeController = {
         },
         showEditView: function(req, res) {
             const { id } = req.params;
+            const idPost = req.body.id;
+            console.log(idPost);
+            console.log(id);
             db.query(
                 'SELECT * FROM post WHERE id = ?',
                 [id],
                 (error, results) => {
+                  console.log(results);
                     if (error) {
                         console.log(error);
                     } else {
@@ -104,58 +141,3 @@ let homeController = {
 
 module.exports = homeController
 
-// showEditView: function(req, res) {
-//     const { id } = req.params;
-
-//     console.log(id);
-//     res.render('edit', {id:id})
-//   }
-  
-
-// updatePostUser: function (req, res) {
-//   const id = req.params.id;
-//   console.log(id);
-//    db.query(
-//       'SELECT * FROM post WHERE id = ?',
-//       [id],
-//       (error, results) => {
-//           if (error) {
-//               console.log(error); //si hay un error me d muestre error en consola
-//           } else {
-             
-//               res.render('edit', {post: results[0]})
-//           }
-  
-//       }
-//   )
-// }
-
-// postFromUser: function (req, res) {
-
-//     db.query(
-//         'SELECT * FROM post',
-//         (error, results) => {
-//             console.log(results);
-//             if (error) {
-//                 console.log(error); //si hay un error me d muestre error en consola
-//             } else {
-//                 res.render('post', { posts: results })
-//             }
-//         }
-//     )
-
-// },
-// deletePostUser: function (req, res) {
-//     const id = req.params.id;
-//     db.query(
-//         'DELETE FROM post WHERE id = ? ',
-//         [id],
-//         (error, results) => {
-//             if (error) {
-//                 console.log(error); //si hay un error me d muestre error en consola
-//             } else {
-//                 res.redirect('/home/post')
-//             }
-//         }
-//     )
-// }

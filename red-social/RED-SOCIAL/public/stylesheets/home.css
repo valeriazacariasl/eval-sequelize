@@ -1,12 +1,9 @@
-body {
-  background-color: #023047
-}
 
 .container-login {
   max-width: 600px;
   margin: 150px auto;
   padding: 20px;
-  background-color: #fffdfd;
+  background-color: #c8c8c8;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -19,7 +16,7 @@ h1 {
 }
 
 
-form {
+.container-login form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,3 +72,4 @@ form {
   justify-content: space-between;
   margin-bottom: 20px;
 }
+

@@ -6,11 +6,11 @@ let registerController = {
     res.render('register');
   },
   processRegister: async function (req, res) {
-    const { email, name, lastname, password } = req.body;
+    const { email, username, name, lastname, password } = req.body;
     console.log(req.body);
 
     // Verificar si algún campo está vacío
-    if (!email || !name || !lastname || !password) {
+    if (!email || !username || !name || !lastname || !password) {
       res.render('register', {
         alert: true,
         alertTitle: 'Error',
@@ -42,15 +42,14 @@ let registerController = {
               ruta: ''
             });
           } else {
-            // El correo electrónico no está registrado, se puede proceder con el registro
             bcrypt.hash(password, 8, (error, hash) => {
               if (error) {
                 console.log(error);
                 res.status(500).send('Error en el registro');
               } else {
                 db.query(
-                  'INSERT INTO users (email, name, lastname, password) VALUES (?, ?, ?, ?)',
-                  [email, name, lastname, hash],
+                  'INSERT INTO users (email, username, name, lastname, password) VALUES (?, ?, ?, ?, ?)',
+                  [email, username, name, lastname, hash],
                   (error, results) => {
                     if (error) {
                       console.log(error);

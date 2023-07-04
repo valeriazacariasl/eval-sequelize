@@ -3,24 +3,25 @@
     <%- include('./partials/navbar')%>
     <div class="container-post">
         <% if (posts.length > 0) { %>
-            <% posts.forEach(function(post) { %>
+            <% posts.reverse().forEach(function(post) { %>
                 <div class="post">
                     <div class="post-header">
                         <div class="post-info">
+                            <p class="username"><%= post.name %> </p>
                             <p class="date"><%= post.date %></p>
                         </div>
                     </div>
                     <div class="post-content">
-                        <p><%= post.post %></p>
+                        <p class="post-p"><%= post.post %></p>
                         <% if (post.photo) { %>
-                            <img src="/images/posteos/<%= post.photo %>" class="post">
+                            <img src="/images/posteos/<%= post.photo %>" class="post-img">
                         <% } %>
                     </div>
                     <div class="post-actions">
                         <a href="/home/post/edit/<%=post.id%>" class="edit-link">Editar</a>
 
                         <form action="/home/post/delete/<%= post.id %>?_method=DELETE" method="POST">
-                            <button class="delete" type="submit" class="delete-button">Eliminar</button>
+                            <button  type="submit" class="delete-button">Eliminar</button>
                         </form>
                     </div>
                 </div>

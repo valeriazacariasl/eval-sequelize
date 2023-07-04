@@ -4,18 +4,18 @@
 @import url(home.css);
 
 
-body {
+* {
  margin: 0;
  padding: 0;
  box-sizing: border-box;
- font-family: 'Agdasima', sans-serif;
+ font-family: 'Poppins', sans-serif;
 }
 
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #3d7cb7;
+  background-color: #9663b7;
   padding: 20px;
 }
 

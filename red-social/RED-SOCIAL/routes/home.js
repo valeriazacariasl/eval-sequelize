@@ -24,7 +24,7 @@ router.get('/', mostrarhome);
 
 router.post('/', upload.single('image'), sendForm)
 
-router.get('/post',postFromUser)
+router.get('/post', postFromUser)
 
 //delete
 router.delete('/post/delete/:id', deletePostUser)

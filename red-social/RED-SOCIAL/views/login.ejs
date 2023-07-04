@@ -1,28 +1,42 @@
 <%- include('./partials/head')%>
 
   <body class="login-body">
-    <section class="login-form">
-      <h1>Inicia sesión</h1>
+
+    <div class="login-form">
+
+      <h1>Sign In</h1>
+
       <form action="/" method="POST">
-        <input type="email" name="email" placeholder="Email" class="email">
-        <input type="password" name="password" placeholder="Password" class="pass">
-        <input type="submit" value="Entrar" class="btn-login">
+        <div class="input-group">
+          <div class="input">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email" class="email">
+          </div>
+          <div class="input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" class="pass">
+          </div>
+          <div>
+            <input type="submit" value="Entrar" class="btn-login">
+          </div>
+          <p>¿No estás registrado? <a href="/register">Regístrate aquí</a></p>
+        </div>
       </form>
-    </section>
-    <p>¿No estás registrado? <a href="/register">Regístrate aquí</a></p>
+    </div>
+   
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <% if(typeof alert !='undefined') {%> 
+    <% if(typeof alert !='undefined' ) {%>
       <script>
         Swal.fire({
           title: '<%= alertTitle %>',
           text: '<%= alertMessage %>',
           icon: '<%= alertIcon %>',
           showConfirmButton: '<%= showConfirmButton %>',
-          timer:'<%= timer %>',
-        }).then(()=>{
-          window.location='/<%=ruta%>'
+          timer: '<%= timer %>',
+        }).then(() => {
+          window.location = '/<%=ruta%>'
         })
       </script>
       <%}%>

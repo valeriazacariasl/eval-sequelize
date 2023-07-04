@@ -1,37 +1,63 @@
 <%- include('./partials/head')%>
 
-<body class="body-register">
+  <body class="body-register">
 
-  <section class="register-form">
-    <h1>Crea tu cuenta</h1>
+    <div class="register-form">
 
-    <form action="/register" method="post">
+      <h1>Sign Up</h1>
 
-      <input name="email" type="email" placeholder="Email" />
-      <input name="name" type="text" placeholder="Name" />
-      <input name="lastname" type="text" placeholder="Lastname" />
-     
-      <input name="password" type="password" placeholder="Password" />
-      <button type="submit">Registrar</button>
+      <form action="/register" method="post">
 
-    </form>
-    <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a></p>
-  </section>
+        <div class="input-register">
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+          <div class="input">
+            <i class="fa-solid fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email" class="email">
+          </div>
 
-  <% if(typeof alert != 'undefined') { %>
-    <script>
-      Swal.fire({
-        title: '<%= alertTitle %>',
-        text: '<%= alertMessage %>',
-        icon: '<%= alertIcon %>',
-        showConfirmButton: '<%= showConfirmButton %>',
-        timer: '<%= timer %>',
-      }).then(() => {
-        window.location = '<%= ruta %>';
-      });
-    </script>
-  <% } %>
+          <div class="input">
+            <i class="fa-solid fa-user"></i>
+            <input class="user" name="username" type="text" placeholder="Username" />
+          </div>
 
-</body>
+
+          <div class="input">
+            <i class="fa-solid fa-user"></i>
+            <input class="username" name="name" type="text" placeholder="Name" />
+          </div>
+
+          <div class="input">
+            <i class="fa-solid fa-user"></i>
+            <input class="username" name="lastname" type="text" placeholder="Lastname" />
+          </div>
+
+          <div class="input">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" class="pass">
+          </div>
+
+          <input type="submit" value="Registrar" class="btn-login">
+
+          <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a></p>
+        </div>
+      </form>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if(typeof alert !='undefined' ) { %>
+      <script>
+        Swal.fire({
+          title: '<%= alertTitle %>',
+          text: '<%= alertMessage %>',
+          icon: '<%= alertIcon %>',
+          showConfirmButton: '<%= showConfirmButton %>',
+          timer: '<%= timer %>',
+        }).then(() => {
+          window.location = '/<%= ruta %>';
+        });
+      </script>
+      <% } %>
+
+  </body>
