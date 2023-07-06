@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const multer = require('multer');
-var path = require('path');
+var path = require('path'); //importo los modulos que voy a necesitar
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -18,13 +18,13 @@ const storage = multer.diskStorage({
 
 const { mostrarhome, sendForm, postFromUser, deletePostUser, updatePostUser, showEditView} = require('../controllers/homeController');
 
-/* GET users listing. */
+//defino las rutas
 
 router.get('/', mostrarhome);
 
-router.post('/', upload.single('image'), sendForm)
+router.post('/', upload.single('image'), sendForm) //se encarga de CREAR una publicación
 
-router.get('/post', postFromUser)
+router.get('/post', postFromUser) 
 
 //delete
 router.delete('/post/delete/:id', deletePostUser)
@@ -33,12 +33,6 @@ router.delete('/post/delete/:id', deletePostUser)
 router.put('/post/edit/:id', updatePostUser);
 
 router.get('/post/edit/:id', showEditView)
-
-// router.get('/post/edit/:id', updatePostUser);
-
-
-
-
 
 
 

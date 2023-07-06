@@ -1,24 +1,41 @@
 .body-register {
   width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(rgb(237 209 153 / 80%), rgb(186 147 69 / 80%)), url(../images/background/background-register.jpg);
+  background-image:  url(../images/background/background-register.jpg);
   background-position: center;
   background-size: cover;
   position: relative;
 }
 
+
 .register-form {
   width: 90%;
   max-width: 450px;
-  height: 81%;
   position: absolute;
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, 50%);
   background: #fff;
-  padding: 50px 60px 70px;
+  padding: 55px 49px 40px;
   text-align: center;
   border-radius: 15px;
+}
+
+.register-form .input-register {
+  margin-bottom: 20px;
+}
+
+.register-form .errors {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.register-form:not(.form-with-errors) {
+  transition: height 0.3s ease;
+}
+
+.register-form.form-with-errors {
+  height: auto;
 }
 
 a{
@@ -44,10 +61,11 @@ a{
   transform: translateX(-50%);
 }
 
-.input-register {
+/* .input-register {
   height: 310px;
-}
+} */
 
 .input-register p {
   margin-top: 23px;
 }
+

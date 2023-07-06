@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
+let {check, validationResult} = require('express-validator');
+let validateRegister = require('../middleware/validateRegister')
 
 const {mostrarRegister, processRegister} = require('../controllers/registerController');
 // Ruta para mostrar el formulario de registro
 router.get('/', mostrarRegister);
 
 // Ruta para registrar un nuevo usuario
-router.post('/', processRegister);
+router.post('/', validateRegister, processRegister);
 
 module.exports = router;

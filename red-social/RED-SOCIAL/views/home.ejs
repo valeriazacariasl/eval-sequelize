@@ -1,13 +1,13 @@
 <%- include('./partials/head')%>
 
-    <body>
+    <body class="body-home">
         <%- include('./partials/navbar')%>
 
             <div class="container-login">
 
-                <% if (loggedIn) { %>
+              
                     <h1>Qué tal tu dia, <span class="username">
-                            <%= name %>
+                            <%= name  %>
                         </span> ?</h1>
 
                     <form action="/home" method="POST" enctype="multipart/form-data">
@@ -25,7 +25,7 @@
                         <div id="file-name"></div>
 
                     </form>
-                    <% } %>
+                  
             </div>
 
             <script src="/javascripts/home.js"></script>

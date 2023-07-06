@@ -6,13 +6,15 @@
 
       <h1>Sign Up</h1>
 
-      <form action="/register" method="post">
+        <!-- <form action="/register" method="post">
 
         <div class="input-register">
+
 
           <div class="input">
             <i class="fa-solid fa-envelope"></i>
             <input type="email" name="email" placeholder="Email" class="email">
+            
           </div>
 
           <div class="input">
@@ -40,13 +42,63 @@
 
           <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a></p>
         </div>
-      </form>
+      </form> 
+     -->
+
+     <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+      <div class="errors">
+        <% errors.forEach(function(error) { %>
+          <p><%= error.msg %></p>
+        <% }); %>
+      </div>
+    <% } %>
+
+     <form action="/register" method="post">
+      <div class="input-register">
+    
+        <div class="input">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" name="email" placeholder="Email" class="email">
+        </div>
+    
+        <div class="input">
+          <i class="fa-solid fa-user"></i>
+          <input class="user" name="username" type="text" placeholder="Username" />
+        </div>
+    
+        <div class="input">
+          <i class="fa-solid fa-user"></i>
+          <input class="username" name="name" type="text" placeholder="Name" />
+        </div>
+    
+        <div class="input">
+          <i class="fa-solid fa-user"></i>
+          <input class="username" name="lastname" type="text" placeholder="Lastname" />
+        </div>
+    
+        <div class="input">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" class="pass">
+        </div>
+        
+        <div class="input">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" name="confirmPassword" placeholder="Repite password" class="pass">
+        </div>
+
+
+        <input type="submit" value="Registrar" class="btn-login">
+    
+        <p>¿Ya tienes una cuenta? <a href="/">Inicia sesión aquí</a></p>
+      </div>
+    </form>
+    
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <% if(typeof alert !='undefined' ) { %>
+    <% if (typeof alert !== 'undefined' && alertTitle === 'Registro exitoso') { %>
       <script>
         Swal.fire({
           title: '<%= alertTitle %>',
@@ -55,9 +107,20 @@
           showConfirmButton: '<%= showConfirmButton %>',
           timer: '<%= timer %>',
         }).then(() => {
-          window.location = '/<%= ruta %>';
+          window.location =  '/<%= ruta %>'; // Redirecciona a la página de inicio de sesión
         });
       </script>
-      <% } %>
+    <% } else if (typeof alert !== 'undefined') { %>
+      <script>
+        Swal.fire({
+          title: '<%= alertTitle %>',
+          text: '<%= alertMessage %>',
+          icon: '<%= alertIcon %>',
+          showConfirmButton: '<%= showConfirmButton %>',
+          timer: '<%= timer %>',
+        });
+      </script>
+    <% } %>
+    
 
   </body>

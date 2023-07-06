@@ -1,17 +1,30 @@
 
+.body-home{
+   height: 100vh;
+    background-image: url(../images/background/backgroundhome.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+}
+
+
+
 .container-login {
   max-width: 600px;
   margin: 150px auto;
   padding: 20px;
-  background-color: #c8c8c8;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 4px rgb(81 71 111 / 10%); */
   text-align: center;
+  backdrop-filter: blur(19px);
+  border: 2px solid #14c2d3;
 }
+
 
 h1 {
   font-size: 40px;
-  color: #5aa2e0;
+  color: #f9fbfd;
   margin-bottom: 20px;
 }
 
@@ -37,7 +50,7 @@ h1 {
 }
 
 .file-label {
-  background-color: #008cff;
+  background-color: #61686d;
   color: #fff;
   border: none;
   border-radius: 5px;

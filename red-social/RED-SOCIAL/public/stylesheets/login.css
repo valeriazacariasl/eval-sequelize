@@ -1,7 +1,7 @@
 .login-body {
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(rgb(237 209 153 / 80%), rgb(186 147 69 / 80%)), url(../images/background/background.jpg);
+    background-image:  url(../images/background/background.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -11,7 +11,7 @@
 .login-form {
     width: 90%;
     max-width: 450px;
-    height: 57%;
+    height: 43%;
     position: absolute;
     bottom: 50%;
     left: 50%;
