@@ -41,15 +41,14 @@ let homeController = {
             res.render('home', { name: req.session.name });
             return;
           }
-        
 
 
-        if (req.file) {
+        if (req.file) { //si se adjunto una foto en el form se asigna el nombre del archivo de la foto
             photoName = req.file.filename;
         }
 
         db.query(
-            'INSERT INTO post (id_user, post, photo, date) VALUES (?, ?, ?, NOW())',
+            'INSERT INTO post (id_user, post, photo, date) VALUES (?, ?, ?, NOW())', //consulta para insertar un nuevo registro
             [userId, post, photoName],
             (error, results) => {
                 if (error) {
@@ -68,13 +67,13 @@ let homeController = {
             console.log(userEmail);
             db.query(
                 'SELECT post.id, post.id_user, post.post, post.photo, post.date, users.name FROM post INNER JOIN users ON post.id_user = users.id WHERE users.email = ?',
-                [userEmail],
+                [userEmail], //consulta para traer los post asociados al usuario
                 (error, results) => {
                     if (error) {
                         console.log(error);
 
                     } else {
-                        res.render('post', { posts: results });
+                        res.render('post', { posts: results }); //guardo el resultado de la consulta en posts
 
                     }
                 }
@@ -99,11 +98,11 @@ let homeController = {
         )
     },
     updatePostUser: function (req, res) {
-        const id = req.params.id;
+        const id = req.params.id; //tomo el id del parametro
         console.log(req.body);
         console.log(id);
         //AL HACER CLICK LLAMA ESTE CONTROLADOR
-        const query = `UPDATE post SET post = "${req.body.post}" WHERE id = ${id}`;
+        const query = `UPDATE post SET post = "${req.body.post}" WHERE id = ${id}`; //guardo mi consulta de actualizacion dentro de query
 
         db.query(
             query,
@@ -134,8 +133,6 @@ let homeController = {
             }
         );
     }
-
-
 }
 
 

@@ -8,17 +8,14 @@
 
 }
 
-
-
 .container-login {
   max-width: 600px;
-  margin: 150px auto;
+  margin: 200px auto;
   padding: 20px;
   border-radius: 10px;
-  /* box-shadow: 0 2px 4px rgb(81 71 111 / 10%); */
   text-align: center;
+  background-color: rgba(50, 47, 47, 0.5);
   backdrop-filter: blur(19px);
-  border: 2px solid #14c2d3;
 }
 
 
@@ -62,7 +59,7 @@ h1 {
 }
 
 .file-label:hover {
-  background-color: #007be6;
+  background-color: #494b4d;
 }
 
 .post-button {

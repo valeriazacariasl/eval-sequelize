@@ -2,9 +2,9 @@ const { body, validationResult } = require('express-validator');
 
 const validateRegister = [
     body('email').isEmail().withMessage('Debe ser un email válido'),
-    body('username').matches('^[0-9a-zA-Z ]+$').withMessage('Debe contener letras minúsculas, mayúsculas y números'),
-    body('name').matches('^[A-Za-záéíóúÁÉÍÓÚñÑüÜ ]+$').withMessage('Solo debe contener letras y espacios'),
-    body('lastname').matches('^[A-Za-záéíóúÁÉÍÓÚñÑüÜ ]+$').withMessage('Solo debe contener letras y espacios'),
+    body('username').matches('^[0-9a-zA-Z ]+$').withMessage('Debe contener letras minúsculas o mayúsculas y números'),
+    body('name').matches('^[A-Za-záéíóúÁÉÍÓÚñÑüÜ ]+$').withMessage('Solo debe contener letras'),
+    body('lastname').matches('^[A-Za-záéíóúÁÉÍÓÚñÑüÜ ]+$').withMessage('Solo debe contener letras'),
     body('password')
       .isLength({ min: 8, max: 21 }).withMessage('Debe tener mínimo 8 caracteres y máximo 21')
       .isStrongPassword({

@@ -3,7 +3,7 @@ var router = express.Router();
 const multer = require('multer');
 var path = require('path'); //importo los modulos que voy a necesitar
 
-const storage = multer.diskStorage({
+const storage = multer.diskStorage({ //
     destination: function (req, file, cb) {
       cb(null, 'public/images/posteos');
     },

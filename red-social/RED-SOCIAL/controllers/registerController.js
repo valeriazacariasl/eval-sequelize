@@ -42,7 +42,7 @@ let registerController = {
         alertMessage: 'Las contraseñas no coinciden',
         alertIcon: 'error',
         showConfirmButton: true,
-        timer: 1500,
+        timer: 2500,
         ruta: ''
       });
       return;
@@ -62,7 +62,7 @@ let registerController = {
               alertMessage: 'El correo electrónico ya está registrado',
               alertIcon: 'error',
               showConfirmButton: true,
-              timer: 1500,
+              timer: 2500,
               ruta: ''
             });
           } else {
@@ -79,7 +79,7 @@ let registerController = {
                     alertMessage: 'El nombre de usuario ya está registrado',
                     alertIcon: 'error',
                     showConfirmButton: true,
-                    timer: 1500,
+                    timer: 2500,
                     ruta: ''
                   });
                 } else { //si ninguno esta registrado genero un hash de la contraseña ingresada
@@ -102,7 +102,7 @@ let registerController = {
                               alertMessage: 'Registro exitoso, puede iniciar sesión',
                               alertIcon: 'success',
                               showConfirmButton: true,
-                              timer: 1500,
+                              timer: 2500,
                               ruta: ''
                             });
                           }

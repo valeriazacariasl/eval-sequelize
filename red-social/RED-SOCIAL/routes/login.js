@@ -6,6 +6,7 @@ const { mostrarInicio, processLogin, cerrarSesion } = require('../controllers/lo
 /* GET home page. */
 router.get('/', mostrarInicio);
 
+//procesa los datos de la sesión
 router.post('/', processLogin)
 
 router.get('/logout', cerrarSesion)

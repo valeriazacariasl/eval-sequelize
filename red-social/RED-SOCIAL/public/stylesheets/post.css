@@ -1,5 +1,5 @@
 .container-post {
-  max-width: 800px;
+  width: 45%;
   margin: 30px auto;
   padding: 20px;
   background-color: #fff;
@@ -16,11 +16,15 @@
 }
 
 .post-img {
-  width: 100%;
-}
+    width: 60%;
+    object-fit: cover;
+    display: block;
+    margin: 25px auto;
+} 
 
 .post-p{
   color: black;
+  margin-bottom: 25px;
 }
 
 .post-header {
@@ -83,7 +87,7 @@
 }
 
 .create-link:hover {
-  color: #096dd9;
+  text-decoration: underline;
 }
 
 .username {

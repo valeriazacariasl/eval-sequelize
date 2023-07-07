@@ -60,7 +60,7 @@ let loginController = {
           alertMessage: 'Ingrese un correo electrónico y contraseña válidos',
           alertIcon: 'warning',
           showConfirmButton: true,
-          timer: 1500,
+          timer: 2500,
           ruta: ''
         });
       }
